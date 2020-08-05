@@ -1,4 +1,4 @@
-## 2. Airline data analysis  
+## 2. Flight Delay Analysis Dashboard
 udacity_BA_project2_submission  
 [Airline delay data](https://d17h27t6h515a5.cloudfront.net/topher/2017/December/5a3b1fad_flight-delays/flight-delays.zip)  
 [Tableau Project URL](https://public.tableau.com/profile/papaya6214#!/vizhome/Chooseyourbestairline/Story2)  
