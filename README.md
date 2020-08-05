@@ -25,7 +25,10 @@ This is a UK ecommerce retailer who needs to decide their best sellers.
 
 ## 3. Google merchandise store analysis  
 Google Analytics & Data studio  
+Explore and visulize data insights using advanced reporting techniques including customer segmentation, multiple display format and data studio dashboards.
 
 ## 4. Tesla Analytics brief  
+Created an analytic brief to answer questions about business and customer to test and learn from marketing initiative.
+## 5. 2018 & 2019 Black Friday Campaign Report
+Used advanced excel techniques to report on campaign performance and audience insights.
 
-## 5. 2018&2019 Black Friday Sales Analysis
