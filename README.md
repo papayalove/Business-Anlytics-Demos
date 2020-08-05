@@ -1,5 +1,5 @@
 # Business-Analytics-Demos
-Several Business Analytics Projects
+Several Business and Marketing Analytics Projects
 
 ## 1. NYSE data analysis  
 udacity_BA_project2_submission  
