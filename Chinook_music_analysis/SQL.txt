@@ -1,0 +1,137 @@
+/* Query 1 
+We need to find ten bands for a concert.
+Find most popupar ten bands or singers in terms of the times of purchase of tracks for each band or singer
+*/
+
+
+SELECT ar.ArtistId, ar.Name, count(*) AS purchase_times
+FROM Track t
+JOIN InvoiceLine il
+ON t.TrackId=il.TrackId
+JOIN Album al
+ON al.AlbumId=t.AlbumId
+JOIN Artist ar
+ON ar.ArtistId= al.ArtistId
+GROUP BY ar.ArtistId, ar.Name
+ORDER BY purchase_times DESC
+LIMIT 10
+
+
+
+/* Query 2 */
+/*2. what is the main genre of thses bands? 
+first determine the main genre of each band in terms of the number of songs of each genre for each band and then vote for the main genre of all bands.
+*/
+
+WITH pop_band AS (select ar.ArtistId, ar.Name, count(*) AS purchase_times
+FROM Track t
+JOIN InvoiceLine il
+ON t.TrackId=il.TrackId
+JOIN Album al
+ON al.AlbumId=t.AlbumId
+JOIN Artist ar
+ON ar.ArtistId= al.ArtistId
+GROUP BY ar.ArtistId, ar.Name
+ORDER BY purchase_times DESC
+LIMIT 10),
+
+
+band_genre_amount AS (SELECT ar.ArtistId, ar.Name, g.Name AS genre_name, count(*) AS songs_amount
+FROM Track t
+JOIN Album al
+ON al.AlbumId=t.AlbumId
+JOIN Artist ar
+ON ar.ArtistId= al.ArtistId
+JOIN Genre g
+ON g.GenreId=t.GenreId
+WHERE ar.ArtistId IN (SELECT ArtistId FROM pop_band)
+GROUP BY ar.ArtistId, ar.Name, g.Name),
+
+
+band_genre_max AS (SELECT ArtistId, MAX(songs_amount) AS max_amount_some_genre
+FROM band_genre_amount
+GROUP BY ArtistId),
+
+band_main_genre AS(SELECT bga.ArtistId, bga.Name, bga.genre_name, bga.songs_amount
+FROM band_genre_amount bga
+JOIN band_genre_max bgm
+ON bga.ArtistId=bgm.ArtistId AND bga.songs_amount=bgm.max_amount_some_genre
+)
+
+SELECT genre_name AS genre, count(*) AS bands_number
+FROM band_main_genre
+GROUP BY genre_name
+
+/* Query 3 */
+/*Which city to hold the concert? Find out the best city in terms of amount of purchase among these 10 bands
+*/
+WITH pop_band AS (select ar.ArtistId, ar.Name, count(*) AS purchase_times
+FROM Track t
+JOIN InvoiceLine il
+ON t.TrackId=il.TrackId
+JOIN Album al
+ON al.AlbumId=t.AlbumId
+JOIN Artist ar
+ON ar.ArtistId= al.ArtistId
+GROUP BY ar.ArtistId, ar.Name
+ORDER BY purchase_times DESC
+LIMIT 10)
+
+
+SELECT c.City, c.Country, COUNT(*) AS purchase_amount
+FROM Customer c
+JOIN Invoice i
+ON c.CustomerId=i.CustomerId
+JOIN InvoiceLine il
+ON il.InvoiceId=i.InvoiceId
+JOIN Track t
+ON t.TrackId=il.TrackId
+JOIN Album al
+ON t.AlbumId=al.AlbumId
+WHERE al.ArtistId IN (SELECT ArtistId FROM pop_band)
+GROUP BY c.City, c.Country
+ORDER BY 3 DESC
+LIMIT 5
+
+/* Query 4 */
+/*Invite at least 1 most furious fan for each band to take photos with the bands and offer free tickets to them
+*/
+
+WITH pop_band AS (select ar.ArtistId, ar.Name, count(*) AS purchase_times
+FROM Track t
+JOIN InvoiceLine il
+ON t.TrackId=il.TrackId
+JOIN Album al
+ON al.AlbumId=t.AlbumId
+JOIN Artist ar
+ON ar.ArtistId= al.ArtistId
+GROUP BY ar.ArtistId, ar.Name
+ORDER BY purchase_times DESC
+LIMIT 10),
+
+customer_band_spent AS (SELECT c.CustomerId, c.FirstName, c.LastName, al.ArtistId, SUM(il.UnitPrice) AS money_spent
+FROM Customer c
+JOIN Invoice i
+ON c.CustomerId=i.CustomerId
+JOIN InvoiceLine il
+ON il.InvoiceId=i.InvoiceId
+JOIN Track t
+ON t.TrackId=il.TrackId
+JOIN Album al
+ON t.AlbumId=al.AlbumId
+WHERE al.ArtistId IN (SELECT ArtistId FROM pop_band)
+GROUP BY c.CustomerId, c.FirstName, c.LastName, al.ArtistId)
+,
+
+band_max_money_spent AS (SELECT ArtistId, MAX(money_spent) AS max_money_spent
+FROM customer_band_spent
+GROUP BY 1)
+
+
+SELECT cbs.ArtistId, ar.Name, cbs.CustomerId, cbs.FirstName, cbs.LastName,  cbs.money_spent
+FROM customer_band_spent cbs
+JOIN band_max_money_spent bmm
+ON cbs.ArtistId=bmm.ArtistId AND cbs.money_spent=bmm.max_money_spent
+JOIN Artist ar
+ON ar.ArtistId=cbs.ArtistId
+ORDER BY 1
