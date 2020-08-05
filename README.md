@@ -11,6 +11,8 @@ udacity_BA_project2_submission
 [Tableau Project URL](https://public.tableau.com/profile/papaya6214#!/vizhome/Chooseyourbestairline/Story2)  
 I used tableau to explore the data then made a dashboard which users can interact with and select the most satisfactory airline for their travel. The detailed design idea and dashboard explaination is in the report.  
 
-## 3. Ecommerce Retailer Analysis  
+
+# Marketing-Analytics-Demos
+## 1. Ecommerce Retailer Analysis  
 Best seller analysis  
 This is a UK ecommerce retailer who needs to decide their best sellers.  
