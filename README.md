@@ -13,7 +13,7 @@ I used tableau to explore the data then made a dashboard which users can interac
 
 ## 3. Chinook Music Database Analysis
 [chinook database](http://video.udacity-data.com.s3.amazonaws.com/topher/2017/September/59cdaf80_chinook-db/chinook-db.zip)  
-Database: SQLite
+Database: SQLite  
 I used SQL and answered several interconnected questions for planning a concert.  
 
 
