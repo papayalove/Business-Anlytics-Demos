@@ -1,0 +1,18 @@
+ArtistId,Name,CustomerId,FirstName,LastName, money_spent 
+22,Led Zeppelin,4,Bjørn,Hansen, $9 
+22,Led Zeppelin,43,Isabelle,Mercier, $9 
+50,Metallica,22,Heather,Leacock, $9 
+50,Metallica,42,Wyatt,Girard, $9 
+58,Deep Purple,18,Michelle,Brooks, $9 
+58,Deep Purple,38,Niklas,Schröder, $9 
+81,Eric Clapton,2,Leonie,Köhler, $6 
+82,Faith No More,8,Daan,Peeters, $9 
+90,Iron Maiden,55,Mark,Taylor, $18 
+113,Os Paralamas Do Sucesso,1,Luís,Gonçalves, $6 
+113,Os Paralamas Do Sucesso,15,Jennifer,Peterson, $6 
+124,R.E.M.,39,Camille,Bernard, $5 
+124,R.E.M.,53,Phil,Hughes, $5 
+149,Lost,6,Helena,Holý, $16 
+149,Lost,46,Hugh,'O''Reilly', $16 
+150,U2,7,Astrid,Gruber, $9 
+150,U2,35,Madalena,Sampaio, $9 
