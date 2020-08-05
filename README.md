@@ -19,5 +19,13 @@ I used SQL and answered several interconnected questions for planning a concert.
 
 # Marketing-Analytics-Demos
 ## 1. Ecommerce Retailer Analysis  
-Best seller analysis  
-This is a UK ecommerce retailer who needs to decide their best sellers.  
+Best seller analysis   
+This is a UK ecommerce retailer who needs to decide their best sellers.   
+## 2. Udacity student survey analysis   
+
+## 3. Google merchandise store analysis  
+Google Analytics & Data studio  
+
+## 4. Tesla Analytics brief  
+
+## 5. 2018&2019 Black Friday Sales Analysis
