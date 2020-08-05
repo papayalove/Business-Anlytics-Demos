@@ -1,4 +1,4 @@
-# Business-Anlytics-Demos
+# Business-Analytics-Demos
 Several Business Analytics Projects
 
 ## 1. NYSE data analysis  
