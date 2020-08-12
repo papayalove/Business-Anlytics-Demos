@@ -7,7 +7,8 @@ Includes Problem solving dashboard, Profit&Loss statement, 2-year Forecasting mo
 
 ## 2. Flight Delay Analysis Dashboard
 [project link](https://github.com/papayalove/Business-Anlytics-Demos/tree/master/flights-delay-projects-submission)  
-[Tableau Dashboard URL](https://public.tableau.com/profile/papaya6214#!/vizhome/Chooseyourbestairline/Story2)  
+[Tableau Dashboard URL: choose your best airline](https://public.tableau.com/profile/papaya6214#!/vizhome/Chooseyourbestairline/Story2)  
+[Tableau Dashboard URL: Flights Delay Reasons Analysis](https://public.tableau.com/profile/papaya6214#!/vizhome/AirlineDelayTimeAnalysis/Story1)
 I used tableau to explore the data then made a dashboard which users can interact with and select the most satisfactory airline for their travel. The detailed design idea and dashboard explaination is in the report.  
 [Airline delay data](https://d17h27t6h515a5.cloudfront.net/topher/2017/December/5a3b1fad_flight-delays/flight-delays.zip)  
 
